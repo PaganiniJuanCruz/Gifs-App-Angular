@@ -49,10 +49,9 @@ export class GifsService {
 
     console.log(params.toString());
     
-
+    //LLAMADA A LA API
     this.httpClient.get<SearchGifsResponse>(`${ this.serviceUrl}/search`, { params })
       .subscribe( (response ) => {
-        console.log(response.data);
         this.resultados = response.data;
         localStorage.setItem( 'resultados', JSON.stringify(this.resultados) );
       })
